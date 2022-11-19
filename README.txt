@@ -34,42 +34,42 @@ you have preloaded date to use
 drone state
 
 STATE_ID  	STATE_DESC  
-1			IDLE
-2			LOADING
-3			LOADED
-4			DELIVERING
-5			DELIVERED
-6			RETURNING
+1		IDLE
+2		LOADING
+3		LOADED
+4		DELIVERING
+5		DELIVERED
+6		RETURNING
 
 drone model
 
 MODEL_ID  	MODEL_DESC  
-1			Lightweight
-2			Middleweight
-3			Cruiserweight
-4			Heavyweight
+1		Lightweight
+2		Middleweight
+3		Cruiserweight
+4		Heavyweight
 
 drones
 
 SERIAL  	MODELIDFK  	WEIGHT  	BATTERY_CAPACITY  	STATEIDFK  
-Drone1		1			100			80					3
-Drone2		2			200			80					1
-Drone3		1			100			20					1
-Drone4		3			300			50					1
+Drone1		1		100		80			3
+Drone2		2		200		80			1
+Drone3		1		100		20			1
+Drone4		3		300		50			1
 
 medications
 
 NAME  			WEIGHT  	CODE  
-medication1		50			medication1
-medication2		80			medication2
-medication3		100			medication3
-medication4		20			medication4
-medication5		200			medication5
+medication1	       50		medication1
+medication2	       80		medication2
+medication3	       100		medication3
+medication4	       20		medication4
+medication5	       200		medication5
 
 drones_loads
 
 DRONE_SERIAL  	MEDICATION_CODE  
-Drone1			medication1
+Drone1		medication1
 
 finally Battery history table for logging history in database
 
