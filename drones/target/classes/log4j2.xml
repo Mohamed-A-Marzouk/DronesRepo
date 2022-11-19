@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Properties>
+        <Property name="basePath">./logs</Property>
+        <Property name="baseFilename">DronesLogs</Property>
+    </Properties>
+
+    <Appenders>
+        <RollingFile name="errorFileAppender" fileName="${basePath}/${baseFilename}_error.log"
+                     filePattern="${basePath}/${baseFilename}_error_%d{yyyy-MM-dd}.log">
+            <PatternLayout
+                    pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] [%C{1}.%M] %X - %msg%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+            </Policies>
+        </RollingFile>
+
+        <RollingFile name="infoFileAppender" fileName="${basePath}/${baseFilename}_info.log"
+                     filePattern="${basePath}/${baseFilename}_info_%d{yyyy-MM-dd}.log">
+            <PatternLayout
+                pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] [%C{1}.%M] %X - %msg%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+            </Policies>
+        </RollingFile>
+
+        <RollingFile name="springframeworkFileAppender" fileName="${basePath}/${baseFilename}_spring.log"
+                     filePattern="${basePath}/${baseFilename}_spring_%d{yyyy-MM-dd}.log">
+            <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] [%C{1}.%M] - %msg%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingFile>
+        <RollingFile name="auditFileAppender" fileName="${basePath}/${baseFilename}_audit.log"
+                     filePattern="${basePath}/${baseFilename}_error_%d{yyyy-MM-dd}.log">
+            <PatternLayout
+                    pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] [%C{1}.%M] %X - %msg%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+            </Policies>
+        </RollingFile>
+
+
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout
+                    pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] [%C{1}.%M] %X - %msg%n" />
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="errorLogger" level="error" additivity="false">
+            <appender-ref ref="errorFileAppender" level="error" />
+        </Logger>
+
+        <Logger name="infoLogger" level="info" additivity="false">
+            <appender-ref ref="infoFileAppender" level="info" />
+            <appender-ref ref="console" level="info" />
+        </Logger>
+        <Logger name="auditLogger" level="info" additivity="false">
+            <appender-ref ref="auditFileAppender" level="info" />
+            <appender-ref ref="console" level="info" />
+        </Logger>
+
+
+        <Logger name="org.springframework" level="debug" additivity="false">
+            <appender-ref ref="springframeworkFileAppender" level="debug"/>
+            <appender-ref ref="console" level="info"/>
+        </Logger>
+
+        <Root level="INFO" additivity="false">
+            <appender-ref ref="console" level="debug" />
+            <appender-ref ref="errorFileAppender" level="error" />
+            <appender-ref ref="infoFileAppender" level="info" />
+            <appender-ref ref="auditFileAppender" level="info" />
+        </Root>
+    </Loggers>
+</Configuration>
