@@ -1,8 +1,8 @@
 read me for drones task
 
 prerequisite
--java 8 installed 
--clean and build project to download maven dependencies for spring 
+#java 8 installed 
+#clean and build project to download maven dependencies for spring 
 
 run project
 
